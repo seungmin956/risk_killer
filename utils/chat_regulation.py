@@ -84,7 +84,7 @@ class GraphState(TypedDict,total=False):
     question_en: str
     document_type: str
     categories: List[str]
-    chat_history: List[HumanMessage | AIMessage]
+    chat_history: List[Union[HumanMessage, AIMessage]]
     context: str
     urls: List[str]
     answer: str
