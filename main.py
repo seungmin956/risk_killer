@@ -3,18 +3,18 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# st.sidebar.write("🔧 **디버깅 정보**")
-# try:
-#     import components.tab_regulation
-#     st.sidebar.success("✅ tab_regulation 로딩 성공")
-# except Exception as e:
-#     st.sidebar.error(f"❌ tab_regulation: {e}")
+st.sidebar.write("🔧 **디버깅 정보**")
+try:
+    import components.tab_regulation
+    st.sidebar.success("✅ tab_regulation 로딩 성공")
+except Exception as e:
+    st.sidebar.error(f"❌ tab_regulation: {e}")
 
-# try:
-#     import components.tab_recall  
-#     st.sidebar.success("✅ tab_recall 로딩 성공")
-# except Exception as e:
-#     st.sidebar.error(f"❌ tab_recall: {e}")
+try:
+    import components.tab_recall  
+    st.sidebar.success("✅ tab_recall 로딩 성공")
+except Exception as e:
+    st.sidebar.error(f"❌ tab_recall: {e}")
 
 # 페이지 기본 설정
 st.set_page_config(page_title="Risk Killer", page_icon="🔪", layout="wide")
