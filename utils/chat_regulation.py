@@ -90,7 +90,17 @@ except Exception as e:
     vectorstore = None
 
 # 상태 정의
-GraphState = Dict[str, Any]
+class GraphState(TypedDict,total=False):
+    question: str
+    question_en: str
+    document_type: str
+    categories: List[str]
+    chat_history: List[Union[HumanMessage, AIMessage]]
+    context: str
+    urls: List[str]
+    answer: str
+    need_synthesis: bool
+    guidance_references: List[str]
 
 # 노드 정의
 def router_node(state: GraphState) -> GraphState:
