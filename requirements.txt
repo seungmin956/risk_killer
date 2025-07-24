@@ -22,8 +22,11 @@ langchain-community==0.0.38
 langchain-core==0.1.52
 langchain-text-splitters==0.0.1
 langgraph==0.0.35
-langchain-teddynote==0.0.37
+# langchain-teddynote 제거 - 의존성 충돌로 인해 배포 불가
 langchain-chroma==0.1.2
+
+# Python 환경 변수 설정
+python-dotenv>=1.0.1
 
 # Vector Database (호환 가능한 버전)
 chromadb==0.4.24
