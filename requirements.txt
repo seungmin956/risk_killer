@@ -25,7 +25,7 @@ langchain-core==0.3.62    # 정확한 버전으로 고정
 langchain-text-splitters==0.3.8 # 정확한 버전으로 고정
 langgraph==0.4.5          # 정확한 버전으로 고정
 langchain-teddynote==0.3.45 # 정확한 버전으로 고정
-+ langchain-chroma==[여기 실제 버전 입력] # <--- **가장 중요: 1단계에서 확인한 버전을 여기에 입력하세요!**
+langchain-chroma==0.2.5 # <--- **가장 중요: 1단계에서 확인한 버전을 여기에 입력하세요!**
 
 # Vector Database
 chromadb==1.0.8      # 정확한 버전으로 고정
