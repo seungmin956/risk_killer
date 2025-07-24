@@ -79,7 +79,7 @@ def initialize_chromadb_collection():
 vectorstore = initialize_chromadb_collection()
 
 # 상태 정의
-class GraphState(TypedDict,total=False):
+class GraphState(TypedDict, total=False):
     question: str
     question_en: str
     document_type: str
