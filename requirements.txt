@@ -21,7 +21,7 @@ openai==1.77.0       # 정확한 버전으로 고정
 langchain==0.3.25    # 정확한 버전으로 고정
 langchain-openai==0.3.18 # 정확한 버전으로 고정
 langchain-community==0.3.24 # 정확한 버전으로 고정
-langchain-core==0.3.62    # 정확한 버전으로 고정
+langchain-core==0.3.70     # 정확한 버전으로 고정
 langchain-text-splitters==0.3.8 # 정확한 버전으로 고정
 langgraph==0.4.5          # 정확한 버전으로 고정
 langchain-teddynote==0.3.45 # 정확한 버전으로 고정
