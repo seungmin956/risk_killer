@@ -3,7 +3,7 @@ streamlit==1.45.1 # pip freeze 결과에 따라 정확한 버전으로 고정
 
 # Data Processing
 pandas==2.2.3     # pip freeze 결과에 따라 정확한 버전으로 고정
-numpy==1.26.4     # pip freeze 결과에 numpy가 명시되어 있지 않아 이전에 제시한 범위를 사용했는데,
+numpy>=2.1.0,<3.0.0    # pip freeze 결과에 numpy가 명시되어 있지 않아 이전에 제시한 범위를 사용했는데,
                   # 실제 설치된 numpy 버전이 있다면 그 버전으로 고정하는 것이 좋습니다.
                   # 만약 pip freeze에 numpy==X.Y.Z 가 보인다면 그 버전으로 넣으세요.
                   # 현재 리스트에 없으므로, 설치된 버전 확인이 어렵다면 임시로 이 줄을 남겨두고
