@@ -7,7 +7,7 @@ import json
 import os
 from functools import wraps
 from dotenv import load_dotenv
-from typing import TypedDict, List, Dict, Any 
+from typing import TypedDict, List, Dict, Any, Union
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
