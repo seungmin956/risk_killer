@@ -21,6 +21,7 @@ langchain-core>=0.1.0
 langchain-text-splitters>=0.0.1
 langgraph>=0.0.26
 langchain-teddynote>=0.0.1
+langchain-chroma>=0.1.0  # <--- 이 줄을 추가하세요! (버전은 사용하는 LangChain 버전에 맞게 조정)
 
 # Vector Database
 chromadb>=0.4.15
