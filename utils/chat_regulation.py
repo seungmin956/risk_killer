@@ -79,17 +79,7 @@ def initialize_chromadb_collection():
 vectorstore = initialize_chromadb_collection()
 
 # 상태 정의
-class GraphState(TypedDict, total=False):
-    question: str
-    question_en: str
-    document_type: str
-    categories: List[str]
-    chat_history: List[Union[HumanMessage, AIMessage]]
-    context: str
-    urls: List[str]
-    answer: str
-    need_synthesis: bool
-    guidance_references: List[str]  # guidance에서 regulation 참조를 위한 필드
+GraphState = Dict[str, Any]
 
 # 노드 정의
 def router_node(state: GraphState) -> GraphState:
