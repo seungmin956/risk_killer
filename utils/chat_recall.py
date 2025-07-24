@@ -1,5 +1,7 @@
 # utils/chat_recall.py - LLM 기반 수치형 질문 처리 통합 버전
 import sys
+import pysqlite3
+sys.modules['sqlite3'] = pysqlite3
 import json
 import os
 from datetime import datetime, timedelta
@@ -12,7 +14,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import PromptTemplate
 from langchain_core.messages import AIMessage, HumanMessage
 from langgraph.graph import StateGraph, START, END
-# from langchain_teddynote import logging
+from langchain_teddynote import logging
 from utils.fda_realtime_crawler import get_crawler, update_vectorstore_with_new_data
 from utils.google_crawler import search_and_extract_news_with_fallback, format_news_for_context
 
@@ -30,14 +32,7 @@ import re
 from collections import Counter
 
 load_dotenv()
-# logging.langsmith("LLMPROJECT")
-
-if os.getenv("LANGCHAIN_API_KEY"):
-    os.environ["LANGCHAIN_TRACING_V2"] = "true"
-    os.environ["LANGCHAIN_PROJECT"] = "LLMPROJECT"
-    print("✅ LangSmith 추적 활성화")
-else:
-    print("⚠️ LANGCHAIN_API_KEY 없음 - LangSmith 비활성화")
+logging.langsmith("LLMPROJECT")
 
 class RecallState(TypedDict):
     """리콜 검색 시스템 상태"""
