@@ -1,6 +1,8 @@
 # utils/chat_regulation.py
 
 import sys
+import pysqlite3
+sys.modules['sqlite3'] = pysqlite3
 import json
 import os
 from functools import wraps
@@ -15,17 +17,10 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langgraph.graph import StateGraph, START, END
-# from langchain_teddynote import logging   # LangSmith 추적 활성화
+from langchain_teddynote import logging   # LangSmith 추적 활성화
 
 load_dotenv()                   # 환경변수 로드
-# logging.langsmith("LLMPROJECT") # LangSmith 추적 설정
-
-if os.getenv("LANGCHAIN_API_KEY"):
-    os.environ["LANGCHAIN_TRACING_V2"] = "true"
-    os.environ["LANGCHAIN_PROJECT"] = "LLMPROJECT"
-    print("✅ LangSmith 추적 활성화")
-else:
-    print("⚠️ LANGCHAIN_API_KEY 없음 - LangSmith 비활성화")
+logging.langsmith("LLMPROJECT") # LangSmith 추적 설정
 
 # 계층적 구조를 위한 카테고리 그룹핑
 CATEGORY_HIERARCHY = {
