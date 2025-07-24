@@ -1,47 +1,27 @@
-# Core Streamlit
-streamlit==1.45.1 # pip freeze 결과에 따라 정확한 버전으로 고정
-
-# Data Processing
-pandas==2.2.3     # pip freeze 결과에 따라 정확한 버전으로 고정
-numpy>=2.1.0,<3.0.0    # pip freeze 결과에 numpy가 명시되어 있지 않아 이전에 제시한 범위를 사용했는데,
-                  # 실제 설치된 numpy 버전이 있다면 그 버전으로 고정하는 것이 좋습니다.
-                  # 만약 pip freeze에 numpy==X.Y.Z 가 보인다면 그 버전으로 넣으세요.
-                  # 현재 리스트에 없으므로, 설치된 버전 확인이 어렵다면 임시로 이 줄을 남겨두고
-                  # Streamlit에서 numpy 관련 오류가 발생하면 그 때 수정합니다.
-
-# Web Scraping & Automation
-selenium==4.33.0     # 정확한 버전으로 고정
-webdriver-manager==4.0.2 # 정확한 버전으로 고정
-beautifulsoup4==4.13.4 # 정확한 버전으로 고정
-requests==2.32.3     # 정확한 버전으로 고정
-feedparser==6.0.11   # 정확한 버전으로 고정
-
-# AI & LangChain
-openai==1.77.0       # 정확한 버전으로 고정
-langchain==0.3.25    # 정확한 버전으로 고정
-langchain-openai==0.3.18 # 정확한 버전으로 고정
-langchain-community==0.3.24 # 정확한 버전으로 고정
-langchain-core==0.3.70     # 정확한 버전으로 고정
-langchain-text-splitters==0.3.8 # 정확한 버전으로 고정
-langgraph==0.4.5          # 정확한 버전으로 고정
-langchain-teddynote==0.3.45 # 정확한 버전으로 고정
-langchain-chroma==0.2.5 # <--- **가장 중요: 1단계에서 확인한 버전을 여기에 입력하세요!**
-
-# Vector Database
-chromadb==1.0.9     # 정확한 버전으로 고정
-pysqlite3-binary>=0.5.0 # 이 범위는 괜찮아 보이지만, 정밀하게 하고 싶다면 pip freeze에 있는 버전으로 고정.
-
-# Visualization
-plotly==6.1.0        # 정확한 버전으로 고정
-
-# Excel Processing
-openpyxl==3.1.5      # 정확한 버전으로 고정
-
-# Image Processing
-Pillow==11.2.1       # 정확한 버전으로 고정
-
-# Environment Variables
-python-dotenv==1.1.0 # 정확한 버전으로 고정
-
-# Async Support
-asyncio-throttle==1.0.0 # 정확한 버전으로 고정 (만약 pip freeze에 있다면)
+streamlit==1.45.1
+streamlit-extras==0.4.0
+pandas==2.2.3
+numpy>=2.1.0 # numpy 2.x와 호환되도록 수정
+selenium==4.33.0
+webdriver-manager==4.0.2
+beautifulsoup4==4.13.4
+requests==2.32.3
+feedparser==6.0.11
+openai==1.77.0
+langchain==0.3.25
+langchain-openai==0.3.18
+langchain-community==0.3.24
+langchain-core==0.3.70 # langchain-chroma와 호환되도록 수정
+langchain-text-splitters==0.3.8
+langgraph==0.4.5
+langchain-teddynote==0.3.45 # 유지
+langchain-chroma==0.2.5
+chromadb==1.0.9 # langchain-chroma와 호환되도록 수정
+pysqlite3-binary>=0.5.0
+plotly==6.1.0
+openpyxl==3.1.5
+Pillow==11.2.1
+python-dotenv==1.1.0
+asyncio-throttle==1.0.0
+pinecone-text==0.10.0 # langchain-teddynote의 의존성 충돌 해결 시도
+torch>=2.0.0 # Python 3.13 환경에서 설치 가능한 torch 2.x 버전 명시
