@@ -1,7 +1,7 @@
 streamlit==1.45.1
 streamlit-extras==0.4.0
 pandas==2.2.3
-numpy>=2.1.0 # numpy 2.x와 호환되도록 수정
+numpy==1.26.4 # pinecone-text와 호환되도록 numpy 버전을 1.x로 고정
 selenium==4.33.0
 webdriver-manager==4.0.2
 beautifulsoup4==4.13.4
@@ -11,17 +11,17 @@ openai==1.77.0
 langchain==0.3.25
 langchain-openai==0.3.18
 langchain-community==0.3.24
-langchain-core==0.3.70 # langchain-chroma와 호환되도록 수정
+langchain-core==0.3.70
 langchain-text-splitters==0.3.8
 langgraph==0.4.5
-langchain-teddynote==0.3.45 # 유지
+langchain-teddynote==0.3.45
 langchain-chroma==0.2.5
-chromadb==1.0.9 # langchain-chroma와 호환되도록 수정
+chromadb==1.0.9
 pysqlite3-binary>=0.5.0
 plotly==6.1.0
 openpyxl==3.1.5
 Pillow==11.2.1
 python-dotenv==1.1.0
 asyncio-throttle==1.0.0
-pinecone-text==0.10.0 # langchain-teddynote의 의존성 충돌 해결 시도
-torch>=2.0.0 # Python 3.13 환경에서 설치 가능한 torch 2.x 버전 명시
+pinecone-text==0.10.0
+torch>=2.0.0
