@@ -4,22 +4,22 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 # 수정된 버전
-st.sidebar.write("🔧 **디버깅 정보**")
-try:
-    import components.tab_regulation
-    # 실제 함수까지 테스트
-    from components.tab_regulation import show_regulation_chat
-    st.sidebar.success("✅ tab_regulation 로딩 성공")
-except Exception as e:
-    st.sidebar.error(f"❌ tab_regulation: {str(e)[:100]}...")  # 에러 메시지 길이 제한
+# st.sidebar.write("🔧 **디버깅 정보**")
+# try:
+#     import components.tab_regulation
+#     # 실제 함수까지 테스트
+#     from components.tab_regulation import show_regulation_chat
+#     st.sidebar.success("✅ tab_regulation 로딩 성공")
+# except Exception as e:
+#     st.sidebar.error(f"❌ tab_regulation: {str(e)[:100]}...")  # 에러 메시지 길이 제한
 
-try:
-    import components.tab_recall
-    # 실제 함수까지 테스트  
-    from components.tab_recall import show_recall_chat
-    st.sidebar.success("✅ tab_recall 로딩 성공")
-except Exception as e:
-    st.sidebar.error(f"❌ tab_recall: {str(e)[:100]}...")  # 에러 메시지 길이 제한
+# try:
+#     import components.tab_recall
+#     # 실제 함수까지 테스트  
+#     from components.tab_recall import show_recall_chat
+#     st.sidebar.success("✅ tab_recall 로딩 성공")
+# except Exception as e:
+#     st.sidebar.error(f"❌ tab_recall: {str(e)[:100]}...")  # 에러 메시지 길이 제한
 # 페이지 기본 설정
 st.set_page_config(page_title="Risk Killer", page_icon="🔪", layout="wide")
 
