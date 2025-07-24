@@ -50,33 +50,44 @@ def translate_korean_to_english(korean_text: str) -> str:
 
 # ChromaDB 컬렉션 초기화
 def initialize_chromadb_collection():
-    """기존 ChromaDB chroma_regulations 컬렉션에 연결"""
+    """안전한 ChromaDB 초기화"""
     try:
+        print("ChromaDB 초기화 시작...")
         embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
         
-        # 기존 ChromaDB 컬렉션에 연결
+        # 더 안전한 방식으로 초기화
         vectorstore = Chroma(
-            collection_name="chroma_regulations",  # 사용자가 지정한 컬렉션명
+            collection_name="chroma_regulations",
             embedding_function=embeddings,
             persist_directory="./data/chroma_db"
         )
         
-        # 컬렉션이 존재하고 데이터가 있는지 확인
-        collection = vectorstore._collection
-        document_count = collection.count()
-        
-        if document_count > 0:
+        # 컬렉션 접근을 더 안전하게
+        try:
+            collection = vectorstore._collection
+            document_count = collection.count()
             print(f"ChromaDB 컬렉션 'chroma_regulations' 연결 완료 ({document_count}개 문서)")
             return vectorstore
-        else:
-            raise ValueError("ChromaDB 컬렉션이 비어있습니다. 데이터를 먼저 로드해주세요.")
+        except Exception as collection_error:
+            print(f"컬렉션 정보 접근 실패: {collection_error}")
+            # 컬렉션 정보를 못 가져와도 vectorstore 자체는 반환
+            return vectorstore
             
     except Exception as e:
-        print(f"ChromaDB 컬렉션 초기화 중 오류: {e}")
-        raise
+        print(f"ChromaDB 초기화 완전 실패: {e}")
+        return None
 
-# 전역 변수로 벡터스토어 초기화
-vectorstore = initialize_chromadb_collection()
+# 더 안전한 전역 초기화
+vectorstore = None
+try:
+    vectorstore = initialize_chromadb_collection()
+    if vectorstore:
+        print("✅ ChromaDB 초기화 성공")
+    else:
+        print("⚠️ ChromaDB 초기화 실패 - None 상태로 진행")
+except Exception as e:
+    print(f"❌ ChromaDB 초기화 예외: {e}")
+    vectorstore = None
 
 # 상태 정의
 class GraphState(TypedDict,total=False):
