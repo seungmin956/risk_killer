@@ -34,7 +34,7 @@ from collections import Counter
 load_dotenv()
 logging.langsmith("LLMPROJECT")
 
-class RecallState(TypedDict):
+class RecallState(TypedDict,total=False):
     """리콜 검색 시스템 상태"""
     question: str
     question_en: str  # 영어 번역된 질문
