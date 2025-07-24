@@ -1,7 +1,5 @@
 # utils/chat_recall.py - LLM 기반 수치형 질문 처리 통합 버전
 import sys
-import pysqlite3
-sys.modules['sqlite3'] = pysqlite3
 import json
 import os
 from datetime import datetime, timedelta
