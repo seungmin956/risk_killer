@@ -1,8 +1,6 @@
 # utils/chat_regulation.py
 
 import sys
-import pysqlite3
-sys.modules['sqlite3'] = pysqlite3
 import json
 import os
 from functools import wraps
