@@ -28,7 +28,7 @@ langchain-teddynote==0.3.45 # 정확한 버전으로 고정
 langchain-chroma==0.2.5 # <--- **가장 중요: 1단계에서 확인한 버전을 여기에 입력하세요!**
 
 # Vector Database
-chromadb==1.0.8      # 정확한 버전으로 고정
+chromadb==1.0.9     # 정확한 버전으로 고정
 pysqlite3-binary>=0.5.0 # 이 범위는 괜찮아 보이지만, 정밀하게 하고 싶다면 pip freeze에 있는 버전으로 고정.
 
 # Visualization
