@@ -50,31 +50,31 @@ def translate_korean_to_english(korean_text: str) -> str:
 
 # ChromaDB 컬렉션 초기화
 def initialize_chromadb_collection():
-    """안전한 ChromaDB 초기화"""
+    """개선된 ChromaDB 초기화"""
     try:
         print("ChromaDB 초기화 시작...")
+        
+        # 환경변수 확인
+        if not os.getenv('OPENAI_API_KEY'):
+            raise ValueError("OPENAI_API_KEY가 설정되지 않았습니다.")
+        
         embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
         
-        # 더 안전한 방식으로 초기화
+        # Streamlit Cloud용 임시 디렉토리 사용
+        import tempfile
+        temp_dir = tempfile.mkdtemp()
+        
         vectorstore = Chroma(
             collection_name="chroma_regulations",
             embedding_function=embeddings,
-            persist_directory="./data/chroma_db"
+            persist_directory=temp_dir  # 임시 디렉토리 사용
         )
         
-        # 컬렉션 접근을 더 안전하게
-        try:
-            collection = vectorstore._collection
-            document_count = collection.count()
-            print(f"ChromaDB 컬렉션 'chroma_regulations' 연결 완료 ({document_count}개 문서)")
-            return vectorstore
-        except Exception as collection_error:
-            print(f"컬렉션 정보 접근 실패: {collection_error}")
-            # 컬렉션 정보를 못 가져와도 vectorstore 자체는 반환
-            return vectorstore
-            
+        print("✅ ChromaDB 초기화 성공")
+        return vectorstore
+        
     except Exception as e:
-        print(f"ChromaDB 초기화 완전 실패: {e}")
+        print(f"❌ ChromaDB 초기화 실패: {e}")
         return None
 
 # 더 안전한 전역 초기화
